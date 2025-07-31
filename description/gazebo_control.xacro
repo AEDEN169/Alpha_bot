@@ -2,22 +2,21 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <gazebo>
-        <plugin name="differential_drive" filename="libgazebo_ros_diff_drive.so">
-            <!-- <ros>
+        <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <ros>
                 <namespace> </namespace>
-            </ros> -->
+            </ros>
 
             <!-- Wheel Information -->
             <num_wheel_pairs>2</num_wheel_pairs>
-            <left_joint>front_left_wheel_joint</left_joint>
-            <left_joint>rear_left_wheel_joint</left_joint>
-
-            <right_joint>front_right_wheel_joint</right_joint>
-            <right_joint>rear_right_wheel_joint</right_joint>
+            <left_joint>left_front_wheel_joint</left_joint>
+            <left_joint>left_rear_wheel_joint</left_joint>
+            <right_joint>right_front_wheel_joint</right_joint>
+            <right_joint>right_rear_wheel_joint</right_joint>
 
             <!--Kinematics-->
-            <wheel_separation>0.25212</wheel_separation>
-            <wheel_diameter>0.0735</wheel_diameter>
+            <wheel_separation>0.1228</wheel_separation>
+            <wheel_diameter>${2*wheel_radius}</wheel_diameter>
 
             <!-- Limits -->
             <max_wheel_torque>1000</max_wheel_torque>
@@ -32,10 +31,10 @@
             <odometry_frame>odom</odometry_frame>
             <robot_base_frame>base_link</robot_base_frame>
 
-            <!-- <publish_wheel_joint_state>true</publish_wheel_joint_state>
+            <publish_wheel_joint_state>true</publish_wheel_joint_state>
             <covariance_x>0.001</covariance_x>
             <covariance_y>0.001</covariance_y>
-            <covariance_yaw>0.01</covariance_yaw> -->
+            <covariance_yaw>0.01</covariance_yaw>
 
 
         </plugin>
